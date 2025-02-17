@@ -9,11 +9,13 @@ import axios from 'axios'
 import ErrorDialog from 'components/common/ErrorDialog.vue'
 import { useI18n } from 'vue-i18n'
 import { Routes } from 'src/enums/Routes'
+import { useRouter } from 'vue-router';
 
 const emailRef = ref<string>('')
 const password = ref<string>('')
 const errorRef = ref<boolean>(false)
 const message = ref<string>('')
+const router = useRouter()
 
 const { t } = useI18n()
 const onSubmit = async (event: Event) => {
@@ -27,6 +29,8 @@ const onSubmit = async (event: Event) => {
 
   try {
     await authStore.signIn(data)
+
+    await router.push({ name: Routes.HOME });
   } catch (error) {
     errorRef.value = true
     message.value = t('common.defaultError')
