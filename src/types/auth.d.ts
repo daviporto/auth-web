@@ -1,12 +1,18 @@
 export interface User {
-  id: string;
-  name: string;
-  email: string;
-  createdAt: string;
+  id: string
+  name: string
+  email: string
+  createdAt: string,
+  token: ?string
 }
 
 export interface SignupData {
-  name: string;
-  email: string;
-  password: string;
+  name: string
+  email: string
+  password: string
+}
+
+export interface SignInData {
+  email: string
+  password: string
 }

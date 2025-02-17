@@ -1,6 +1,6 @@
 import { acceptHMRUpdate, defineStore } from 'pinia'
-import { signup } from 'src/api/userApi'
-import type { SignupData, User } from 'src/types/auth'
+import { signup, signIn } from 'src/api/userApi'
+import type { SignInData, SignupData, User } from 'src/types/auth'
 
 export const useAuthStore = defineStore('auth', {
   state: () => ({
@@ -10,6 +10,10 @@ export const useAuthStore = defineStore('auth', {
   actions: {
     async signup(data: SignupData) {
       this.user = await signup(data)
+    },
+
+    async signIn(data: SignInData) {
+      this.user = await signIn(data)
     },
   },
 })
