@@ -6,7 +6,11 @@ export const useAuthStore = defineStore('auth', {
   state: () => ({
     user: null as User | null,
   }),
-  getters: {},
+  getters: {
+    isAuthenticated(): boolean {
+      return !!this?.user?.token
+    },
+  },
   actions: {
     async signup(data: SignupData) {
       this.user = await signup(data)

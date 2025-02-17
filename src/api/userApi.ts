@@ -8,11 +8,11 @@ const defaultHeaders = {
 export const signup = async (data: SignupData): Promise<User> => {
   const response = await api.post('/user', data, { headers: defaultHeaders })
 
-  return response.data
+  return response.data.data
 }
 
 export const signIn = async (data: SignInData): Promise<User> => {
   const response = await api.post('/user/login', data, { headers: defaultHeaders })
 
-  return response.data
+  return response.data.data
 }

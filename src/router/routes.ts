@@ -15,13 +15,15 @@ const routes: RouteRecordRaw[] = [
   {
     path: '/',
     component: () => import('layouts/MainLayout.vue'),
-    name: Routes.HOME,
-    children: [{ path: '', component: () => import('pages/IndexPage.vue') }],
+    meta: { requiresAuth: true },
+    children: [{
+      path: '',
+      component: () => import('pages/IndexPage.vue') ,
+      name: Routes.HOME,
+    }],
   },
 
 
-  // Always leave this as last one,
-  // but you can also remove it
   {
     path: '/:catchAll(.*)*',
     component: () => import('pages/ErrorNotFound.vue'),
