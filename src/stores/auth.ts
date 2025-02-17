@@ -19,6 +19,9 @@ export const useAuthStore = defineStore('auth', {
     async signIn(data: SignInData) {
       this.user = await signIn(data)
     },
+    logout():void {
+      this.user = null;
+    }
   },
 })
 
