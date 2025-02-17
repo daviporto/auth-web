@@ -1,7 +1,7 @@
 <template>
   <q-input
     v-model="modelValue"
-    :label="$t(label)"
+    :label="$t('auth.fields.currentPassword')"
     type="password"
     :rules="rules"
     filled
@@ -22,10 +22,6 @@ const props = defineProps({
     type: Array<ValidationRule>,
     default: () => [],
   },
-  label:{
-    type: String,
-    default: 'auth.fields.password'
-  }
 });
 
 const emit = defineEmits(['update:modelValue']);

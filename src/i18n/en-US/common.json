@@ -1,5 +1,6 @@
 {
   "error": "Error",
   "ok": "Ok",
-  "defaultError": "Something went wrong, please try again later"
+  "defaultError": "Something went wrong, please try again later",
+  "pageTitle": "Auth App"
 }

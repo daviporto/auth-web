@@ -16,11 +16,18 @@ const routes: RouteRecordRaw[] = [
     path: '/',
     component: () => import('layouts/MainLayout.vue'),
     meta: { requiresAuth: true },
-    children: [{
+    children: [
+      {
       path: '',
       component: () => import('pages/IndexPage.vue') ,
       name: Routes.HOME,
-    }],
+    },
+      {
+      path: '/updatePassword',
+      component: () => import('pages/UpdatePasswordPage.vue') ,
+      name: Routes.UPDATE_PASSWORD,
+    }
+    ],
   },
 
 

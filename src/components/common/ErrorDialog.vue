@@ -28,17 +28,17 @@ watch(isVisible, (newValue) => {
 </script>
 
 <template>
-  <q-dialog v-model="isVisible">
-    <q-card>
+  <q-dialog v-model="isVisible" >
+    <q-card style="min-width: 20em;">
       <q-card-section>
-        <div class="text-h6 ">{{ $t('common.error') }}</div>
+        <div class="text-h6 text-center">{{ $t('common.error') }}</div>
       </q-card-section>
 
-      <q-card-section class="q-pt-none">
+      <q-card-section class="q-pt-none text-center">
         <div>{{ message }}</div>
       </q-card-section>
 
-      <q-card-actions align="right">
+      <q-card-actions align="center">
         <q-btn flat :label="$t('common.ok')" color="primary" v-close-popup />
       </q-card-actions>
     </q-card>

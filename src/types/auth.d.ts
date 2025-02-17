@@ -12,6 +12,11 @@ export interface SignupData {
   password: string
 }
 
+export interface UpdatePasswordData {
+  newPassword: string
+  oldPassword: string
+}
+
 export interface SignInData {
   email: string
   password: string

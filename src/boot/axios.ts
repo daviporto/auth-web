@@ -36,4 +36,15 @@ export default defineBoot(({ app, router }) => {
   app.config.globalProperties.$api = api;
 });
 
-export { api };
+const getAxiosWithAuth = () => {
+  const authStore = useAuthStore();
+
+  return axios.create({
+    baseURL: import.meta.env.VITE_API_URL,
+    headers: {
+      Authorization: `Bearer ${authStore.user?.token}`,
+    },
+  });
+};
+
+export { api, getAxiosWithAuth };
