@@ -7,14 +7,20 @@ import { email, minLength, passwordMatch, required } from 'src/utils/userValidat
 import { ref } from 'vue'
 import { useAuthStore } from 'stores/auth'
 import type { SignupData } from 'src/types/auth'
+import axios from 'axios'
+import ErrorDialog from 'components/common/ErrorDialog.vue'
+import { useI18n } from 'vue-i18n'
 
 const name = ref<string>('')
 const emailRef = ref<string>('')
 const password = ref<string>('')
 const repeatPassword = ref<string>('')
+const errorRef = ref<boolean>(false)
+const message = ref<string>('')
 
+const { t } = useI18n()
 const onSubmit = async (event: Event) => {
-  event.preventDefault();
+  event.preventDefault()
   const authStore = useAuthStore()
 
   const data = {
@@ -23,10 +29,19 @@ const onSubmit = async (event: Event) => {
     password: password.value,
   } as SignupData
 
-  try{
+  try {
     await authStore.signup(data)
   } catch (error) {
-    console.error(error)
+    errorRef.value = true
+    message.value = t('auth.signup.error.default')
+
+    if (axios.isAxiosError(error)) {
+      if (error.status == 409) {
+        if (error.response?.data?.message === `User with email ${emailRef.value} already exists`) {
+          message.value = t('auth.signup.error.emailExist', { email: emailRef.value })
+        }
+      }
+    }
   }
 }
 </script>
@@ -52,6 +67,8 @@ const onSubmit = async (event: Event) => {
       </div>
     </q-form>
   </q-card>
+
+  <ErrorDialog v-model:isVisible="errorRef" :message="message" />
 </template>
 
 <style scoped></style>
