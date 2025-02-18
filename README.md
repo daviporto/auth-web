@@ -1,40 +1,26 @@
-# Auth (auth)
+# Auth (Simple Authentication System)
 
-Simple Auth
+A simple authentication system built with Quasar, Vue 3, and TypeScript, featuring user signup, login, logout, and password update functionality.
 
-## Install the dependencies
+## Features
+- User Signup (Name, Email, Password, Confirm Password)
+- User Login
+- User Logout
+- Update Username
+- Update Password
+
+## Installation
+
 ```bash
-yarn
-# or
 npm install
+npm run dev
 ```
 
-### Start the app in development mode (hot-code reloading, error reporting, etc.)
-```bash
-quasar dev
-```
+## Authentication Flow
 
+1. **Signup** - Users can create an account by providing their name, email, and password.
+2. **Login** - Users log in using their registered email and password.
+3. **Logout** - Users can log out of their session.
+4. **Update Username** - Users can modify their registered name.
+5. **Update Password** - Users can update their password securely.
 
-### Lint the files
-```bash
-yarn lint
-# or
-npm run lint
-```
-
-
-### Format the files
-```bash
-yarn format
-# or
-npm run format
-```
-
-
-### Build the app for production
-```bash
-quasar build
-```
-
-### Customize the configuration
-See [Configuring quasar.config.js](https://v2.quasar.dev/quasar-cli-vite/quasar-config-js).
