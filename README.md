@@ -2,6 +2,8 @@
 
 A simple authentication system built with Quasar, Vue 3, and TypeScript, featuring user signup, login, logout, and password update functionality.
 
+This project was designed to work with the following authentication API: [nest-auth](https://github.com/daviporto/nest-auth).
+
 ## Features
 - User Signup (Name, Email, Password, Confirm Password)
 - User Login
