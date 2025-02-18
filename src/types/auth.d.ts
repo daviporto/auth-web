@@ -17,6 +17,10 @@ export interface UpdatePasswordData {
   oldPassword: string
 }
 
+export interface UpdateNameData {
+  name: string
+}
+
 export interface SignInData {
   email: string
   password: string

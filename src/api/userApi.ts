@@ -16,3 +16,9 @@ export const signIn = async (data: SignInData): Promise<User> => {
 export const updatePassword = async (data: UpdatePasswordData, userId:string): Promise<void> => {
   await getAxiosWithAuth().patch(`/user/${userId}/password`, data)
 }
+
+export const updateName = async (data: { name: string }, userId: string): Promise<User> => {
+  const response =  await getAxiosWithAuth().put(`/user/${userId}`, data);
+
+  return response.data.data
+}

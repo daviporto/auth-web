@@ -1,5 +1,5 @@
 import type { RouteRecordRaw } from 'vue-router';
-import { Routes } from 'src/enums/Routes'
+import { Routes } from 'src/enums/Routes';
 
 const routes: RouteRecordRaw[] = [
   {
@@ -10,7 +10,7 @@ const routes: RouteRecordRaw[] = [
   {
     path: '/signIn',
     name: Routes.SIGN_IN,
-    component: () => import('pages/SignInPage.vue')
+    component: () => import('pages/SignInPage.vue'),
   },
   {
     path: '/',
@@ -18,18 +18,22 @@ const routes: RouteRecordRaw[] = [
     meta: { requiresAuth: true },
     children: [
       {
-      path: '',
-      component: () => import('pages/IndexPage.vue') ,
-      name: Routes.HOME,
-    },
+        path: '',
+        component: () => import('pages/IndexPage.vue'),
+        name: Routes.HOME,
+      },
       {
-      path: '/updatePassword',
-      component: () => import('pages/UpdatePasswordPage.vue') ,
-      name: Routes.UPDATE_PASSWORD,
-    }
+        path: '/updatePassword',
+        component: () => import('pages/UpdatePasswordPage.vue'),
+        name: Routes.UPDATE_PASSWORD,
+      },
+      {
+        path: '/updateName',
+        component: () => import('pages/UpdateNamePage.vue'),
+        name: Routes.UPDATE_NAME,
+      },
     ],
   },
-
 
   {
     path: '/:catchAll(.*)*',
